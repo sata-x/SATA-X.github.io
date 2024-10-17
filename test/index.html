@@ -1,0 +1,158 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>パンダクイズ</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f0f8ff;
+            text-align: center;
+            padding: 50px;
+        }
+
+        .quiz-container {
+            background-color: #fff;
+            border: 2px solid #ccc;
+            padding: 20px;
+            border-radius: 10px;
+            display: inline-block;
+        }
+
+        button {
+            background-color: #4CAF50;
+            color: white;
+            padding: 10px 20px;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            margin: 5px;
+        }
+
+        button:hover {
+            background-color: #45a049;
+        }
+
+        #result {
+            font-size: 18px;
+            margin-top: 20px;
+            color: #333;
+        }
+
+        #score {
+            font-size: 20px;
+            font-weight: bold;
+            margin-top: 20px;
+        }
+    </style>
+</head>
+<body>
+
+    <div class="quiz-container">
+        <h1>パンダに関するクイズ</h1>
+        <p id="question">ここにクイズが表示されます</p>
+        <button onclick="checkAnswer('A')" id="btnA">A</button>
+        <button onclick="checkAnswer('B')" id="btnB">B</button>
+        <button onclick="checkAnswer('C')" id="btnC">C</button>
+        <button onclick="checkAnswer('D')" id="btnD">D</button>
+
+        <p id="result"></p>
+        <p id="score"></p>
+    </div>
+
+    <script>
+        // クイズの問題と選択肢のリスト
+        const quizData = [
+            {
+                question: "パンダの主な食べ物は何ですか？",
+                choices: { A: "魚", B: "竹", C: "肉", D: "果物" },
+                correct: "B"
+            },
+            {
+                question: "パンダはどの動物に近縁ですか？",
+                choices: { A: "クマ", B: "ネコ", C: "イヌ", D: "カンガルー" },
+                correct: "A"
+            },
+            {
+                question: "パンダは1日に何時間ほど寝ることが多いですか？",
+                choices: { A: "4時間", B: "8時間", C: "12時間", D: "14時間" },
+                correct: "D"
+            },
+            {
+                question: "パンダはどこの国の国宝ですか？",
+                choices: { A: "日本", B: "インド", C: "中国", D: "タイ" },
+                correct: "C"
+            },
+            {
+                question: "パンダの赤ちゃんは生まれた時、何色ですか？",
+                choices: { A: "黒と白", B: "ピンク", C: "茶色", D: "灰色" },
+                correct: "B"
+            },
+            {
+                question: "パンダが生息する主な場所はどこですか？",
+                choices: { A: "アマゾン", B: "サバンナ", C: "竹林", D: "砂漠" },
+                correct: "C"
+            },
+            {
+                question: "パンダの成長過程において、どのくらいで独立する？",
+                choices: { A: "1年", B: "2年", C: "3年", D: "4年" },
+                correct: "B"
+            },
+            {
+                question: "パンダの平均寿命はどのくらいですか？",
+                choices: { A: "10年", B: "20年", C: "30年", D: "40年" },
+                correct: "B"
+            },
+            {
+                question: "パンダの特徴的な黒い模様はどの部分にありますか？",
+                choices: { A: "目の周り", B: "耳", C: "足", D: "全て" },
+                correct: "D"
+            },
+            {
+                question: "パンダは主にどの動物園で見られますか？",
+                choices: { A: "ロンドン動物園", B: "北京動物園", C: "サンディエゴ動物園", D: "上野動物園" },
+                correct: "D"
+            }
+        ];
+
+        let currentQuiz = 0;
+        let score = 0;
+
+        function loadQuiz() {
+            const currentData = quizData[currentQuiz];
+            document.getElementById("question").innerText = currentData.question;
+            document.getElementById("btnA").innerText = `A. ${currentData.choices.A}`;
+            document.getElementById("btnB").innerText = `B. ${currentData.choices.B}`;
+            document.getElementById("btnC").innerText = `C. ${currentData.choices.C}`;
+            document.getElementById("btnD").innerText = `D. ${currentData.choices.D}`;
+            document.getElementById("result").innerText = "";
+        }
+
+        function checkAnswer(answer) {
+            const currentData = quizData[currentQuiz];
+            if (answer === currentData.correct) {
+                document.getElementById("result").innerText = "正解！";
+                score++;
+            } else {
+                document.getElementById("result").innerText = `不正解！正しい答えは ${currentData.correct} です。`;
+            }
+            currentQuiz++;
+
+            if (currentQuiz < quizData.length) {
+                setTimeout(loadQuiz, 1000); // 1秒後に次の問題を表示
+            } else {
+                setTimeout(showFinalScore, 1000);
+            }
+        }
+
+        function showFinalScore() {
+            document.getElementById("quiz-container").innerHTML = `<h1>クイズ終了！</h1><p>あなたのスコアは ${score} / ${quizData.length} です。</p>`;
+        }
+
+        // クイズの初期化
+        loadQuiz();
+    </script>
+
+</body>
+</html>
