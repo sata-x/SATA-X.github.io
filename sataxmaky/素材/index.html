@@ -1,0 +1,153 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>素材</title>
+  <style>
+    /* グローバルスタイル */
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+      font-family: 'Arial', sans-serif;
+      color: #333;
+    }
+
+    body {
+      background: linear-gradient(135deg, #f0f0f0, #e6e6e6);
+      height: auto; /* 高さを自動調整 */
+      scroll-behavior: smooth;
+    }
+
+    /* メインコンテンツ */
+    #main-content {
+      opacity: 0;
+      transition: opacity 1.5s ease-in-out;
+      display: none; /* 初期状態は非表示 */
+    }
+
+    /* バナー */
+    .banner {
+      width: 100%;
+      height: 400px; /* 高さを400pxに設定 */
+      display: flex;
+      align-items: flex-start; /* 上寄せに調整 */
+      justify-content: center;
+      overflow: hidden; /* オーバーフローを隠す */
+      background-color: #d3e0ff;
+      position: relative;
+    }
+
+    .banner-image {
+      max-width: 80%; /* 横幅を調整して目立たせる */
+      height: auto; /* 高さは自動調整 */
+      object-fit: contain;
+      transition: transform 0.5s ease, opacity 0.5s ease;
+      opacity: 0.9; /* 少し透けるように設定 */
+    }
+
+    /* マウスオーバーで拡大効果 */
+    .banner-image:hover {
+      transform: scale(1.05); /* 拡大して強調 */
+      opacity: 1; /* 拡大時に不透明に */
+    }
+
+    /* ナビゲーションバー */
+    .nav-bar {
+      background-color: #b0c4de;
+      padding: 15px 0;
+    }
+
+    .nav-bar ul {
+      display: flex;
+      justify-content: center;
+      gap: 30px;
+      list-style: none;
+    }
+
+    .nav-bar a {
+      color: #333;
+      text-decoration: none;
+      font-size: 1.2rem;
+      transition: color 0.3s;
+    }
+
+    .nav-bar a:hover {
+      color: #1e90ff;
+    }
+
+    /* 各セクションのスタイル */
+    .content {
+      padding: 50px 20px;
+      max-width: 1200px;
+      margin: 0 auto;
+      text-align: center;
+    }
+
+    h2 {
+      color: #2f4f4f;
+    }
+  </style>
+</head>
+<body>
+
+  <!-- メインコンテンツ -->
+  <div id="main-content">
+    <header id="banner" class="banner">
+      <img src="sataxmaky/data/img/素材_bana.jpg" alt="バナー" class="banner-image">
+    </header>
+
+    <nav class="nav-bar">
+      <ul>
+        <li><a href="/sataxmaky/">index</a></li>
+        <li><a href="sataxmaky/メモ帳">メモ帳</a></li>
+        <li><a href="sataxmaky/開発">開発</a></li>
+        <li><a href="sataxmaky/素材">素材</a></li>
+      </ul>
+    </nav>
+
+    <section id="home" class="content">
+      <h2>使用している素材</h2>
+      <p>フリーBGM DOVA-SYNDROME</p>
+      <p>フリーBGM・音楽素材MusMus https://musmus.main.jp</p>
+      <p>音楽：魔王魂</p>
+      <p>MikuMikuDance(64bitOS Ver)</p>
+      <p>ゆっくりMovieMaker4/ゆっくりMovieMaker3© 2011-2024 饅頭遣い</p>
+      <p>AviUtl by ＫＥＮくん aviutl99@spring-fragrance.mints.ne.jp</p>
+      <p>博麗霊夢 ISAO</p>
+      <p>にがもん式 霊夢にがもん式 魔理沙</p>
+      <p>VM VirtualBox</p>
+      <p>OBS Studio</p>
+      <p>VLC media player</p>
+      <p>GIMP</p>
+      <p>提供:効果音ラボ</p>
+      <p>Wikimedia</p>
+      <p>©soundoffice.com</p>
+      <p>BGM：GT-K（DOVA-SYNDROME）</p>
+      <p>c) Taira Komori 制作/著作 小森平</p>
+      <p>びたちー素材館フリー効果音</p>
+      <p>Copyright © 2024 otonomori</p>
+      <p>くらげ工匠</p>
+      <p>サイト名 : ちょい音リンク先URL : http://www.heavenlyblue.info/se_free</p>
+      <p>Copyright © 2012-2024 OtoLogic</p>
+      <p>ユーフルカ</p>
+      <p>Copyright© ヤミーズカフェ All Rights Reserved.　https://yamicafe.nekonikoban.org</p>
+      <p>https://pixabay.com</p>
+      <p>さたえっくす</p>
+    </section>
+  </div>
+
+  <script>
+    // ページ読み込み時にコンテンツを表示する
+    window.onload = function() {
+      const mainContent = document.getElementById('main-content');
+      mainContent.style.display = 'block'; // コンテンツを表示
+      setTimeout(() => {
+        mainContent.style.opacity = '1'; // フェードイン
+      }, 10);
+    };
+  </script>
+
+</body>
+</html>
